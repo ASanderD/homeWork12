@@ -1,5 +1,8 @@
 package pro.sky.java.course1.lesson12;
 
+
+import static java.util.Objects.hash;
+
 public class Book { // класс Book
     private final String title;
     private final Author author;
@@ -15,6 +18,10 @@ public class Book { // класс Book
         return this.title;
     }
 
+    public Author getAuthor() {
+        return this.author;
+    }
+
     public int getPublishingYear() { //геттер для возвращения значения свойства publishingYear
         return this.publishingYear;
     }
@@ -23,8 +30,25 @@ public class Book { // класс Book
         this.publishingYear = publishingYear;
     }
 
-    public void printInformationAboutABook(Book book) { //метод для вывода информации о книгах в консоль
-        System.out.println("Название книги: " + book.getTitle() + ", автор: " + book.author.getName() + " " + book.author.getSurname() + ", год издания: " + book.getPublishingYear());
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (other == null || this.getClass() != other.getClass()) {
+            return false;
+        }
+        Book t1 = (Book) other;
+        return title.equals(t1.title);
     }
 
+    @Override
+    public int hashCode() {
+        return hash(title);
+    }
+
+    @Override
+    public String toString() {
+        return "Название книги: " + title + ", автор: " + author.toString() + ", год издания: " + publishingYear;
+    }
 }
