@@ -15,6 +15,10 @@ public class Book { // класс Book
         return this.title;
     }
 
+    public Author getAuthor() {
+        return this.author;
+    }
+
     public int getPublishingYear() { //геттер для возвращения значения свойства publishingYear
         return this.publishingYear;
     }
@@ -23,8 +27,8 @@ public class Book { // класс Book
         this.publishingYear = publishingYear;
     }
 
-    public void printInformationAboutABook(Book book) { //метод для вывода информации о книгах в консоль
-        System.out.println("Название книги: " + book.getTitle() + ", автор: " + book.author.getName() + " " + book.author.getSurname() + ", год издания: " + book.getPublishingYear());
+    public void printInformationAboutABook() { //метод для вывода информации о книгах в консоль
+        System.out.println("Название книги: " + getTitle() + ", автор: " + author.getName() + " " + author.getSurname() + ", год издания: " + getPublishingYear());
     }
 
 }
